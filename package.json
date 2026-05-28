@@ -1,0 +1,35 @@
+{
+  "name": "pos-progress",
+  "version": "0.1.0",
+  "description": "ERP/POS Electron + React + SQLite",
+  "private": true,
+  "main": "app/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --win"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "escpos": "3.0.1", 
+    "escpos-usb": "3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+},
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.example.erp.pos",
+    "productName": "ERP POS",
+    "asar": true,
+    "asarUnpack": [
+      "**/node_modules/better-sqlite3/**"
+    ],
+    "npmRebuild": true,
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
