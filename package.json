@@ -5,31 +5,38 @@
   "private": true,
   "main": "app/main/main.js",
   "scripts": {
-    "start": "electron .",
-    "postinstall": "electron-builder install-app-deps",
-    "build": "electron-builder --win"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "postinstall": "node fetch-binary.js"
   },
   "dependencies": {
-    "better-sqlite3": "^9.6.0",
-    "escpos": "3.0.1", 
-    "escpos-usb": "3.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-},
-  "devDependencies": {
-    "electron": "^31.0.0",
-    "electron-builder": "^24.13.3"
+    "better-sqlite3": "^12.10.0",
+    "escpos": "^3.0.0-alpha.6",
+    "node-thermal-printer": "^4.6.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "usb": "^2.12.0"
   },
-  "build": {
-    "appId": "com.example.erp.pos",
-    "productName": "ERP POS",
-    "asar": true,
-    "asarUnpack": [
-      "**/node_modules/better-sqlite3/**"
-    ],
-    "npmRebuild": true,
-    "win": {
-      "target": "nsis"
-    }
+  "devDependencies": {
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/preset-react": "^7.29.7",
+    "@electron-forge/cli": "^7.11.2",
+    "@electron-forge/maker-squirrel": "^7.11.2",
+    "@electron-forge/maker-zip": "^7.11.2",
+    "@electron-forge/plugin-webpack": "^7.11.2",
+    "@electron/rebuild": "^4.0.4",
+    "autoprefixer": "^10.5.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^6.11.0",
+    "electron": "^41.1.0",
+    "postcss": "^8.5.15",
+    "postcss-loader": "^8.2.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.19",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.4"
   }
 }
